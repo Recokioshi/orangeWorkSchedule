@@ -1,18 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './Params.css';
 import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import Typography from '@material-ui/core/Typography';
+import ListSubheader from '@material-ui/core/ListSubheader';
 
 const Params = (props: any) => {
     const classes = props.classes;
@@ -27,19 +21,33 @@ const Params = (props: any) => {
             >
                 <Toolbar />
                 <div className={classes.drawerContainer}>
-                    <List>
-                        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                    <List
+                        component="nav"
+                        aria-labelledby="nested-list-subheader"
+                        subheader={
+                          <ListSubheader component="div" id="nested-list-subheader">
+                            Workers
+                          </ListSubheader>
+                        }
+                    >
+                        {['Patryk Sierżengowsky', 'Adriano Gaikowsky', 'Partycja Cierlikowa', 'Kacperos Borkowsky'].map((text) => (
                             <ListItem button key={text}>
-                                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                                 <ListItemText primary={text} />
                             </ListItem>
                         ))}
                     </List>
                     <Divider />
-                    <List>
-                        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                    <List
+                        component="nav"
+                        aria-labelledby="nested-list-subheader"
+                        subheader={
+                          <ListSubheader component="div" id="nested-list-subheader">
+                            Parameters
+                          </ListSubheader>
+                        }
+                    >
+                        {['Hours per day', 'Kamehameha', 'Universe is on fire!!!'].map((text) => (
                             <ListItem button key={text}>
-                                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                                 <ListItemText primary={text} />
                             </ListItem>
                         ))}

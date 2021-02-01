@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './Header.css';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
