@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 
 const Header = (props: any) => {
+    console.log('props.classes.appBar: ' + props.classes.appBar);
     return (
         <div className="header">
             <AppBar position="fixed" className={props.classes.appBar}>

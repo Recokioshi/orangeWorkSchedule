@@ -7,6 +7,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
+import ListOfWorkers from '../ListOfWorkers/ListOfWorkers'
 
 const Params = (props: any) => {
     const classes = props.classes;
@@ -21,21 +22,7 @@ const Params = (props: any) => {
             >
                 <Toolbar />
                 <div className={classes.drawerContainer}>
-                    <List
-                        component="nav"
-                        aria-labelledby="nested-list-subheader"
-                        subheader={
-                          <ListSubheader component="div" id="nested-list-subheader">
-                            Workers
-                          </ListSubheader>
-                        }
-                    >
-                        {['Patryk Sierżengowsky', 'Adriano Gaikowsky', 'Partycja Cierlikowa', 'Kacperos Borkowsky'].map((text) => (
-                            <ListItem button key={text}>
-                                <ListItemText primary={text} />
-                            </ListItem>
-                        ))}
-                    </List>
+                    <ListOfWorkers />
                     <Divider />
                     <List
                         component="nav"
