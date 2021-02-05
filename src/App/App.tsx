@@ -4,10 +4,9 @@ import Params from '../Params/Params'
 import Calendar from '../Calendar/Calendar'
 import './App.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import getStyles from '../Styles/Styles';
+import classes from '../Styles/Styles';
 
 function App() {
-  const classes = getStyles();
   console.log('classes: ' + classes);
 
   return (
@@ -15,7 +14,7 @@ function App() {
       <CssBaseline />
       <Header classes={classes} />
       <Params classes={classes} />
-      <Calendar classes={classes} />
+      <Calendar classes={classes} someOtherProp={false}/>
     </div>
   );
 }

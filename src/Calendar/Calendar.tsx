@@ -1,6 +1,11 @@
 import './Calendar.css';
+import { StyledComponentPropType } from "../Styles/Styles";
 
-const Calendar = (props: any) => {
+type CalendarPropsType = StyledComponentPropType & {
+    someOtherProp: boolean,
+}
+
+const Calendar = (props: CalendarPropsType) => {
     return (
         <div className="calendar">
             <main className={props.classes.content}>

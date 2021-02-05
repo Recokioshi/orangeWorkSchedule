@@ -1,6 +1,6 @@
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 
-export default function getStyles(): any {
+const styles = function getStyles() {
     const drawerWidth = 240;
     return makeStyles((theme: Theme) =>
         createStyles({
@@ -27,4 +27,12 @@ export default function getStyles(): any {
             },
         })
     )();
+}()
+
+export type StylesType = typeof styles;
+
+export type StyledComponentPropType = {
+    classes: StylesType,
 }
+
+export default styles;
