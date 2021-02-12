@@ -4,17 +4,24 @@ import Params from '../Params/Params'
 import Calendar from '../Calendar/Calendar'
 import './App.css';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import classes from '../Styles/Styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(
+  createStyles({
+    root: {
+      display: 'flex',
+    },
+  })
+)
 
 function App() {
-  console.log('classes: ' + classes);
-
+  const classes = useStyles();
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Header classes={classes} />
-      <Params classes={classes} />
-      <Calendar classes={classes} someOtherProp={false}/>
+      <Header />
+      <Params />
+      <Calendar />
     </div>
   );
 }

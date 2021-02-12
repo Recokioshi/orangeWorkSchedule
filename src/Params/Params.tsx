@@ -1,16 +1,37 @@
 import React from 'react';
 import './Params.css';
-import Drawer from '@material-ui/core/Drawer';
-import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import ListOfWorkers from '../ListOfWorkers/ListOfWorkers'
+import { ListOfWorkers, getWorkers } from '../ListOfWorkers/ListOfWorkers';
+import Drawer from '@material-ui/core/Drawer';
+import Toolbar from '@material-ui/core/Toolbar';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 
-const Params = (props: any) => {
-    const classes = props.classes;
+type ParamsPropsType = {
+};
+
+const drawerWidth = 240;
+const useStyles = makeStyles(
+    createStyles({
+        drawer: {
+            width: drawerWidth,
+            flexShrink: 0,
+        },
+        drawerPaper: {
+            width: drawerWidth,
+        },
+        drawerContainer: {
+            overflow: 'auto',
+        },
+    })
+);
+
+const Params = (props: ParamsPropsType) => {
+    const classes = useStyles();
+    const workersData = getWorkers();
     return (
         <div className="params">
             <Drawer
@@ -22,14 +43,14 @@ const Params = (props: any) => {
             >
                 <Toolbar />
                 <div className={classes.drawerContainer}>
-                    <ListOfWorkers />
+                    <ListOfWorkers workersData={workersData} />
                     <Divider />
                     <List
                         component="nav"
                         aria-labelledby="nested-list-subheader"
                         subheader={
-                          <ListSubheader component="div" id="nested-list-subheader">
-                            Parameters
+                            <ListSubheader component="div" id="nested-list-subheader">
+                                Parameters
                           </ListSubheader>
                         }
                     >

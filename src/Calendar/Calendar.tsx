@@ -1,15 +1,24 @@
 import './Calendar.css';
-import { StyledComponentPropType } from "../Styles/Styles";
+import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 
-type CalendarPropsType = StyledComponentPropType & {
-    someOtherProp: boolean,
-}
+type CalendarPropsType = {
+};
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        content: {
+            flexGrow: 1,
+            padding: theme.spacing(3),
+        },
+    })
+);
 
 const Calendar = (props: CalendarPropsType) => {
+    const classes = useStyles();
     return (
         <div className="calendar">
-            <main className={props.classes.content}>
-
+            <main className={classes.content}>
+                
             </main>
         </div>
     );
