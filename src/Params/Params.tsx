@@ -29,6 +29,26 @@ const useStyles = makeStyles(
     })
 );
 
+const MockedDrawerList = () => {
+    return (
+        <List
+            component="nav"
+            aria-labelledby="nested-list-subheader"
+            subheader={
+                <ListSubheader component="div" id="nested-list-subheader">
+                    Parameters
+      </ListSubheader>
+            }
+        >
+            {['Hours per day', 'Kamehameha', 'Universe is on fire!!!'].map((text) => (
+                <ListItem button key={text}>
+                    <ListItemText primary={text} />
+                </ListItem>
+            ))}
+        </List>
+    );
+}
+
 const Params = (props: ParamsPropsType) => {
     const classes = useStyles();
     const workersData = getWorkers();
@@ -45,21 +65,7 @@ const Params = (props: ParamsPropsType) => {
                 <div className={classes.drawerContainer}>
                     <ListOfWorkers workersData={workersData} />
                     <Divider />
-                    <List
-                        component="nav"
-                        aria-labelledby="nested-list-subheader"
-                        subheader={
-                            <ListSubheader component="div" id="nested-list-subheader">
-                                Parameters
-                          </ListSubheader>
-                        }
-                    >
-                        {['Hours per day', 'Kamehameha', 'Universe is on fire!!!'].map((text) => (
-                            <ListItem button key={text}>
-                                <ListItemText primary={text} />
-                            </ListItem>
-                        ))}
-                    </List>
+                    <MockedDrawerList />
                 </div>
             </Drawer>
         </div>

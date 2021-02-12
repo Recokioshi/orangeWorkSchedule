@@ -21,20 +21,20 @@ type WorkerListPropsType = {
     workersData: WorkerType[],
 }
 
-const Worker = (props: WorkerPropsType) => {
-    const name = `${props.workerData.firstName} ${props.workerData.lastName}`;
-    const initials = getInitials(props.workerData);
+const Worker = ({workerData}: WorkerPropsType) => {
+    const name = `${workerData.firstName} ${workerData.lastName}`;
+    const initials = getInitials(workerData);
     return (
-        <ListItem button key={props.workerData.id}>
+        <ListItem button key={workerData.id}>
             <Avatar>{initials}</Avatar>
             <ListItemText primary={name} />
         </ListItem>  
     );
 }
 
-function getInitials(workerData: WorkerType): string {
-    const firstLetter = workerData.firstName.length > 0 ? workerData.firstName.substring(0, 1) : '';
-    const secondLetter = workerData.lastName.length > 0 ? workerData.lastName.substring(0, 1) : '';
+function getInitials({firstName, lastName}: WorkerType): string {
+    const firstLetter = firstName.length > 0 ? firstName.substring(0, 1) : '';
+    const secondLetter = lastName.length > 0 ? lastName.substring(0, 1) : '';
     return firstLetter + secondLetter;
 }
 
