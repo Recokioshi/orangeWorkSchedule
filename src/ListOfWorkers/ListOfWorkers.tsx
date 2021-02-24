@@ -6,7 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Avatar from '@material-ui/core/Avatar';
 
-type WorkerType = {
+export type WorkerType = {
     id: number,
     firstName: string,
     lastName: string,
@@ -14,6 +14,7 @@ type WorkerType = {
 }
 
 type WorkerPropsType = {
+    key: number,
     workerData: WorkerType,
 }
 
@@ -21,7 +22,7 @@ type WorkerListPropsType = {
     workersData: WorkerType[],
 }
 
-const Worker = ({workerData}: WorkerPropsType) => {
+export const Worker = ({workerData}: WorkerPropsType) => {
     const name = `${workerData.firstName} ${workerData.lastName}`;
     const initials = getInitials(workerData);
     return (
@@ -32,7 +33,7 @@ const Worker = ({workerData}: WorkerPropsType) => {
     );
 }
 
-function getInitials({firstName, lastName}: WorkerType): string {
+export function getInitials({firstName, lastName}: WorkerType): string {
     const firstLetter = firstName.length > 0 ? firstName.substring(0, 1) : '';
     const secondLetter = lastName.length > 0 ? lastName.substring(0, 1) : '';
     return firstLetter + secondLetter;
@@ -50,7 +51,7 @@ export const ListOfWorkers = (props: WorkerListPropsType) => {
             }
         >
             {props.workersData.map((worker) => (
-                <Worker workerData={worker}/>
+                <Worker key={worker.id} workerData={worker}/>
             ))}
         </List>);
 }

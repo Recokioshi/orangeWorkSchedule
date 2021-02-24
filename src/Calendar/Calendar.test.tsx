@@ -4,7 +4,7 @@ import { act } from "react-dom/test-utils";
 import pretty from "pretty";
 import { unmountComponentAtNode } from "react-dom";
 
-import App from './App';
+import Calendar from "./Calendar";
 
 let container: HTMLDivElement | null = null;
 beforeEach(() => {
@@ -22,10 +22,10 @@ afterEach(() => {
   }
 });
 
-it("renders app", () => {
+it("renders calendar", () => {
   if (container) {
     act(() => {
-      render(<App />);
+      render(<Calendar />);
     });
     expect(pretty(container.innerHTML)).toMatchInlineSnapshot(`""`);
   }

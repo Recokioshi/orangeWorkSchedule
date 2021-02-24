@@ -4,7 +4,7 @@ import { act } from "react-dom/test-utils";
 import pretty from "pretty";
 import { unmountComponentAtNode } from "react-dom";
 
-import App from './App';
+import Header from './Header';
 
 let container: HTMLDivElement | null = null;
 beforeEach(() => {
@@ -22,10 +22,10 @@ afterEach(() => {
   }
 });
 
-it("renders app", () => {
+it("renders header", () => {
   if (container) {
     act(() => {
-      render(<App />);
+      render(<Header />);
     });
     expect(pretty(container.innerHTML)).toMatchInlineSnapshot(`""`);
   }
