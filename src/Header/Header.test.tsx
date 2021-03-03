@@ -1,32 +1,21 @@
 import React from "react";
-import { render } from "@testing-library/react";
-import { act } from "react-dom/test-utils";
 import pretty from "pretty";
-import { unmountComponentAtNode } from "react-dom";
+import { render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
 
-import Header from './Header';
+import Header from "./Header";
 
-let container: HTMLDivElement | null = null;
-beforeEach(() => {
-  // setup a DOM element as a render target
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
+test("render header", () => {
+  const { container, getByRole } = render(<Header />);
 
-afterEach(() => {
-  // cleanup on exiting
-  if (container) {
-    unmountComponentAtNode(container);
-    container.remove();
-    container = null;
-  }
-});
-
-it("renders header", () => {
-  if (container) {
-    act(() => {
-      render(<Header />);
-    });
-    expect(pretty(container.innerHTML)).toMatchInlineSnapshot(`""`);
-  }
+  expect(getByRole("heading")).toHaveTextContent("Orange Work Schedule");
+  expect(pretty(container.innerHTML)).toMatchInlineSnapshot(`
+    "<div class=\\"header\\">
+      <header class=\\"MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary makeStyles-appBar-1 mui-fixed MuiPaper-elevation4\\">
+        <div class=\\"MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters\\">
+          <h6 class=\\"MuiTypography-root MuiTypography-h6 MuiTypography-noWrap\\">Orange Work Schedule</h6>
+        </div>
+      </header>
+    </div>"
+  `);
 });
