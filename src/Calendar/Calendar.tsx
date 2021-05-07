@@ -6,8 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Toolbar from '@material-ui/core/Toolbar';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-
-export const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+import moment from 'moment'
 
 type CalendarPropsType = {
 };
@@ -50,7 +49,7 @@ const CalendarMonthSelect = (props: CalendarMonthSelectPropsType) => {
         setMonth(event.target.value as string);
     };
 
-    const selectItems = months.map((m, i) => (
+    const monthOptions = moment.months().map((m, i) => (
         <MenuItem key={m} value={i}>{m}</MenuItem>
     ))
     return (
@@ -59,7 +58,7 @@ const CalendarMonthSelect = (props: CalendarMonthSelectPropsType) => {
             changeHandler={handleMonthChange}
             className={props.className}
             selectName={'Month'}
-            selectItems={selectItems}
+            selectItems={monthOptions}
         />
     );
 }
@@ -68,7 +67,7 @@ type CalendarYearSelectPropsType = {
     className: string
 };
 const CalendarYearSelect = (props: CalendarYearSelectPropsType) => {
-    const currentYear = (new Date()).getFullYear();
+    const currentYear = moment().year();
     const [year, setYear] = useState(String(currentYear));
     
     const years = [currentYear - 1, currentYear, currentYear + 1];
@@ -78,7 +77,7 @@ const CalendarYearSelect = (props: CalendarYearSelectPropsType) => {
         setYear(event.target.value as string);  
     };
 
-    const selectItems = yearsString.map((y) => (
+    const yearOptions = yearsString.map((y) => (
         <MenuItem key={y} value={y}>{y}</MenuItem>
     ));
     return (
@@ -87,7 +86,7 @@ const CalendarYearSelect = (props: CalendarYearSelectPropsType) => {
             changeHandler={handleYearChange}
             className={props.className}
             selectName={'Year'}
-            selectItems={selectItems}
+            selectItems={yearOptions}
         />
     );
 }
