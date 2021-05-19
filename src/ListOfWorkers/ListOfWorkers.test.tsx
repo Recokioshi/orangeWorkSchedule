@@ -28,7 +28,7 @@ const dummyData: WorkerType[] = [
 describe("workers list", () => {
   test("renders zero elements", () => {
     const emptyArray = dummyData.slice(2);
-    const { container, getByText, getAllByRole } = render(<ListOfWorkers workersData={emptyArray} />);
+    const { container, getByText } = render(<ListOfWorkers workersData={emptyArray} />);
 
     expect(getByText("Workers")).toBeInTheDocument();
     expect(pretty(container.innerHTML)).toMatchInlineSnapshot(`
