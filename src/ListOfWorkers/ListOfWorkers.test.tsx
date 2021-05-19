@@ -3,12 +3,9 @@ import pretty from "pretty";
 import { getAllByRole, render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import {
-  ListOfWorkers,
-  WorkerType,
-  getInitials,
-  Worker,
-} from "./ListOfWorkers";
+import { ListOfWorkers } from "./ListOfWorkers";
+
+import { WorkerType, getInitials, Worker } from "./Worker";
 
 const dummyData: WorkerType[] = [
   {
@@ -28,7 +25,9 @@ const dummyData: WorkerType[] = [
 describe("workers list", () => {
   test("renders zero elements", () => {
     const emptyArray = dummyData.slice(2);
-    const { container, getByText } = render(<ListOfWorkers workersData={emptyArray} />);
+    const { container, getByText } = render(
+      <ListOfWorkers workersData={emptyArray} />
+    );
 
     expect(getByText("Workers")).toBeInTheDocument();
     expect(pretty(container.innerHTML)).toMatchInlineSnapshot(`
@@ -50,7 +49,7 @@ describe("workers list", () => {
       "<nav class=\\"MuiList-root MuiList-padding MuiList-subheader\\" aria-labelledby=\\"nested-list-subheader\\">
         <div class=\\"MuiListSubheader-root MuiListSubheader-sticky MuiListSubheader-gutters\\" id=\\"nested-list-subheader\\">Workers</div>
         <div class=\\"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button\\" tabindex=\\"0\\" role=\\"button\\" aria-disabled=\\"false\\">
-          <div class=\\"MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault\\">GB</div>
+          <div class=\\"MuiAvatar-root MuiAvatar-circle makeStyles-avatar-1 makeStyles-avatar-2 MuiAvatar-colorDefault\\">GB</div>
           <div class=\\"MuiListItemText-root\\"><span class=\\"MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock\\">Grzegorz Biedronkowy</span></div><span class=\\"MuiTouchRipple-root\\"></span>
         </div>
       </nav>"
@@ -58,7 +57,9 @@ describe("workers list", () => {
   });
 
   test("renders two elements", () => {
-    const { container, getByText, getAllByRole } = render(<ListOfWorkers workersData={dummyData} />);
+    const { container, getByText, getAllByRole } = render(
+      <ListOfWorkers workersData={dummyData} />
+    );
 
     expect(getByText("Workers")).toBeInTheDocument();
     expect(getAllByRole("button").length).toBe(2);
@@ -66,11 +67,11 @@ describe("workers list", () => {
       "<nav class=\\"MuiList-root MuiList-padding MuiList-subheader\\" aria-labelledby=\\"nested-list-subheader\\">
         <div class=\\"MuiListSubheader-root MuiListSubheader-sticky MuiListSubheader-gutters\\" id=\\"nested-list-subheader\\">Workers</div>
         <div class=\\"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button\\" tabindex=\\"0\\" role=\\"button\\" aria-disabled=\\"false\\">
-          <div class=\\"MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault\\">SP</div>
+          <div class=\\"MuiAvatar-root MuiAvatar-circle makeStyles-avatar-3 makeStyles-avatar-4 MuiAvatar-colorDefault\\">SP</div>
           <div class=\\"MuiListItemText-root\\"><span class=\\"MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock\\">Stefan Pajonkowsky</span></div><span class=\\"MuiTouchRipple-root\\"></span>
         </div>
         <div class=\\"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button\\" tabindex=\\"0\\" role=\\"button\\" aria-disabled=\\"false\\">
-          <div class=\\"MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault\\">GB</div>
+          <div class=\\"MuiAvatar-root MuiAvatar-circle makeStyles-avatar-3 makeStyles-avatar-5 MuiAvatar-colorDefault\\">GB</div>
           <div class=\\"MuiListItemText-root\\"><span class=\\"MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock\\">Grzegorz Biedronkowy</span></div><span class=\\"MuiTouchRipple-root\\"></span>
         </div>
       </nav>"
@@ -86,14 +87,20 @@ describe("worker", () => {
     );
 
     expect(getByText(getInitials(dummyWorkerData))).toBeInTheDocument();
-    expect(getByText(`${dummyWorkerData.firstName} ${dummyWorkerData.lastName}`)).toBeInTheDocument();
+    expect(
+      getByText(`${dummyWorkerData.firstName} ${dummyWorkerData.lastName}`)
+    ).toBeInTheDocument();
 
-    expect(getByText(dummyWorkerData.firstName, {exact: false})).toBeInTheDocument();
-    expect(getByText(dummyWorkerData.lastName, {exact: false})).toBeInTheDocument();
-    
+    expect(
+      getByText(dummyWorkerData.firstName, { exact: false })
+    ).toBeInTheDocument();
+    expect(
+      getByText(dummyWorkerData.lastName, { exact: false })
+    ).toBeInTheDocument();
+
     expect(pretty(container.innerHTML)).toMatchInlineSnapshot(`
       "<div class=\\"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button\\" tabindex=\\"0\\" role=\\"button\\" aria-disabled=\\"false\\">
-        <div class=\\"MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault\\">SP</div>
+        <div class=\\"MuiAvatar-root MuiAvatar-circle makeStyles-avatar-6 makeStyles-avatar-7 MuiAvatar-colorDefault\\">SP</div>
         <div class=\\"MuiListItemText-root\\"><span class=\\"MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock\\">Stefan Pajonkowsky</span></div><span class=\\"MuiTouchRipple-root\\"></span>
       </div>"
     `);
@@ -106,14 +113,20 @@ describe("worker", () => {
     );
 
     expect(getByText(getInitials(dummyWorkerData))).toBeInTheDocument();
-    expect(getByText(`${dummyWorkerData.firstName} ${dummyWorkerData.lastName}`)).toBeInTheDocument();
+    expect(
+      getByText(`${dummyWorkerData.firstName} ${dummyWorkerData.lastName}`)
+    ).toBeInTheDocument();
 
-    expect(getByText(dummyWorkerData.firstName, {exact: false})).toBeInTheDocument();
-    expect(getByText(dummyWorkerData.lastName, {exact: false})).toBeInTheDocument();
+    expect(
+      getByText(dummyWorkerData.firstName, { exact: false })
+    ).toBeInTheDocument();
+    expect(
+      getByText(dummyWorkerData.lastName, { exact: false })
+    ).toBeInTheDocument();
 
     expect(pretty(container.innerHTML)).toMatchInlineSnapshot(`
       "<div class=\\"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button\\" tabindex=\\"0\\" role=\\"button\\" aria-disabled=\\"false\\">
-        <div class=\\"MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault\\">GB</div>
+        <div class=\\"MuiAvatar-root MuiAvatar-circle makeStyles-avatar-8 makeStyles-avatar-9 MuiAvatar-colorDefault\\">GB</div>
         <div class=\\"MuiListItemText-root\\"><span class=\\"MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock\\">Grzegorz Biedronkowy</span></div><span class=\\"MuiTouchRipple-root\\"></span>
       </div>"
     `);

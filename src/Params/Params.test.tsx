@@ -16,19 +16,19 @@ test("renders params", () => {
             <nav class=\\"MuiList-root MuiList-padding MuiList-subheader\\" aria-labelledby=\\"nested-list-subheader\\">
               <div class=\\"MuiListSubheader-root MuiListSubheader-sticky MuiListSubheader-gutters\\" id=\\"nested-list-subheader\\">Workers</div>
               <div class=\\"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button\\" tabindex=\\"0\\" role=\\"button\\" aria-disabled=\\"false\\">
-                <div class=\\"MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault\\">PS</div>
+                <div class=\\"MuiAvatar-root MuiAvatar-circle makeStyles-avatar-4 makeStyles-avatar-5 MuiAvatar-colorDefault\\">PS</div>
                 <div class=\\"MuiListItemText-root\\"><span class=\\"MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock\\">Patryk Sierżengowsky</span></div><span class=\\"MuiTouchRipple-root\\"></span>
               </div>
               <div class=\\"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button\\" tabindex=\\"0\\" role=\\"button\\" aria-disabled=\\"false\\">
-                <div class=\\"MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault\\">AG</div>
+                <div class=\\"MuiAvatar-root MuiAvatar-circle makeStyles-avatar-4 makeStyles-avatar-6 MuiAvatar-colorDefault\\">AG</div>
                 <div class=\\"MuiListItemText-root\\"><span class=\\"MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock\\">Adriano Gaikovsky</span></div><span class=\\"MuiTouchRipple-root\\"></span>
               </div>
               <div class=\\"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button\\" tabindex=\\"0\\" role=\\"button\\" aria-disabled=\\"false\\">
-                <div class=\\"MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault\\">PC</div>
+                <div class=\\"MuiAvatar-root MuiAvatar-circle makeStyles-avatar-4 makeStyles-avatar-7 MuiAvatar-colorDefault\\">PC</div>
                 <div class=\\"MuiListItemText-root\\"><span class=\\"MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock\\">Patrycyja Cierlikova</span></div><span class=\\"MuiTouchRipple-root\\"></span>
               </div>
               <div class=\\"MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button\\" tabindex=\\"0\\" role=\\"button\\" aria-disabled=\\"false\\">
-                <div class=\\"MuiAvatar-root MuiAvatar-circle MuiAvatar-colorDefault\\">KB</div>
+                <div class=\\"MuiAvatar-root MuiAvatar-circle makeStyles-avatar-4 makeStyles-avatar-8 MuiAvatar-colorDefault\\">KB</div>
                 <div class=\\"MuiListItemText-root\\"><span class=\\"MuiTypography-root MuiListItemText-primary MuiTypography-body1 MuiTypography-displayBlock\\">Kacperos Borkowsky</span></div><span class=\\"MuiTouchRipple-root\\"></span>
               </div>
             </nav>
